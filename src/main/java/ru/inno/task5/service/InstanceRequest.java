@@ -9,8 +9,8 @@ import java.util.List;
 
 public record InstanceRequest(
         Integer instanceId,
+//        @Pattern(regexp = "НСО|СМО|ЕЖО|ДБДС|договор")
         @NotNull(message = "{CorporateSettlementInstance.requiredParameter}") String productType,
-        //TODO Enum (НСО, СМО, ЕЖО, ДБДС, договор)
         @NotNull(message = "{CorporateSettlementInstance.requiredParameter}") String productCode,
         @NotNull(message = "{CorporateSettlementInstance.requiredParameter}") String registerType,
         @NotNull(message = "{CorporateSettlementInstance.requiredParameter}") String mdmCode,
@@ -21,7 +21,8 @@ public record InstanceRequest(
         Float minimalBalance,
         Float thresholdAmount,
         String accountingDetails,
-        String rateType,//TODO enum, дифференцированная 0 /прогрессивная 1
+        @Pattern(regexp = "0|1")
+        String rateType,
         Float taxPercentageRate,
         Float technicalOverdraftLimitAmount,
         @NotNull(message = "{CorporateSettlementInstance.requiredParameter}") Integer contractId,

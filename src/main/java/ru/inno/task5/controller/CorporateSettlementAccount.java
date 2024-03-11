@@ -15,12 +15,6 @@ public class CorporateSettlementAccount {
     @Autowired
     AccountService accountService;
 
-    @GetMapping("info")
-    public AccountRequest info(){
-        return new AccountRequest(12);
-    }
-
-
     @PostMapping(value = "create", consumes = "application/json;charset=UTF-8"
             , produces = "application/json;charset=UTF-8")
     public ResponseEntity<?> create(@Valid @RequestBody AccountRequest request){
