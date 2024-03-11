@@ -10,10 +10,7 @@ import ru.inno.task5.config.AppConfig;
 public class Task5Application {
 
     public static void main(String[] args) {
-
-
         SpringApplication.run(AppConfig.class, args);
-//        SpringApplication.run(Task5Application.class, args);
     }
 
 }

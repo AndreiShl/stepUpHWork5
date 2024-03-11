@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ru.inno.task5.model.Agreement;
 import ru.inno.task5.model.TppProduct;
 import ru.inno.task5.model.TppProductRegister;
@@ -34,6 +35,7 @@ public class InstanceService {
     @Autowired
     private AgreementRepo agreementRepo;
 
+    @Transactional
     public ResponseEntity<?> process(InstanceRequest request) {
         if (request.instanceId() == null) {
             return create(request);
@@ -85,7 +87,6 @@ public class InstanceService {
                                 product.getId().toString(),
                                 createdProductRegisterId,
                                 supplementaryAgreementId
-
                         )
                 );
     }

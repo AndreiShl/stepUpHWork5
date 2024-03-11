@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ru.inno.task5.model.TppProductRegister;
 import ru.inno.task5.model.TppRefProductRegisterType;
 import ru.inno.task5.repository.AccountPoolRepo;
@@ -23,6 +24,7 @@ public class AccountService {
     @Autowired
     TppRefAccountTypeRepo tppRefAccountTypeRepo;
 
+    @Transactional
     public ResponseEntity<?> createAccount(AccountRequest request) {
         var tppProd = tppProductRegisterRepo.getFirstByProductIdAndType(request.instanceId(), request.registryTypeCode());
         if (tppProd != null) {
@@ -37,7 +39,6 @@ public class AccountService {
 
         var type = tppRefProductRegisterTypeRepo.getFirstByAccountType(request.accountType()
         );
-        System.out.println(type);
 
         var annotation = TppRefProductRegisterType.class.getAnnotation(Table.class);
         if (type == null) {

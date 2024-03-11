@@ -2,7 +2,6 @@ package ru.inno.task5.controller;
 
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.inno.task5.service.AccountRequest;
@@ -22,8 +21,8 @@ public class CorporateSettlementAccount {
     }
 
 
-    @PostMapping(value = "create", consumes = MediaType.APPLICATION_JSON_VALUE
-            , produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "create", consumes = "application/json;charset=UTF-8"
+            , produces = "application/json;charset=UTF-8")
     public ResponseEntity<?> create(@Valid @RequestBody AccountRequest request){
         return accountService.createAccount(request);
     }

@@ -21,7 +21,7 @@ public class TppTemplateRegisterBalance {
     @Column(name = "amount", nullable = true, precision = 0)
     private BigInteger amount;
     @Basic
-    @Column(name = "order", nullable = true, length = 50)
+    @Column(name = "orderone", nullable = true, length = 50)
     private String order;
     @Basic
     @Column(name = "last_modify_date", nullable = true)
