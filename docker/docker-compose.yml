@@ -1,0 +1,29 @@
+version: "3.8"
+services:
+
+  postgres:
+    image: task5:demo
+    container_name: task5
+    ports:
+      - "8090:8090"
+    environment:
+      DATABASE_URL_TASK5: "jdbc:postgresql://host.docker.internal:5432/hwork5"
+      USERNAME_TASK5: postgres
+      PASSWORD_TASK5: 1Q2w3e4r
+      SERVER_PORT_TASK5: 8090
+#      - POSTGRES_HOST_AUTH_METHOD=md5
+#      - PGDATA=/var/lib/postgresql/data/pgdata
+#    volumes:
+#      - pg-test-data:/var/lib/postgresql/data
+#      - ./2mca/sql:/sql
+#    healthcheck:
+#      test: ["CMD-SHELL", "pg_isready -U postgres -d postgres"]
+#      interval: 10s
+#      timeout: 5s
+#      retries: 5
+#      start_period: 10s
+    restart: unless-stopped
+
+#volumes:
+#  pg-test-data:
+#    name: pg-test-data

@@ -1,12 +1,13 @@
 server:
-  port: 8080
+  port: ${SERVER_PORT_TASK5}
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/test
-    username: postgres
-    password: secret
+    url: ${DATABASE_URL_TASK5}
+    username: ${USERNAME_TASK5}
+    password: ${PASSWORD_TASK5}
 
   jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
     show-sql: true
     hibernate:
       ddl-auto: update
