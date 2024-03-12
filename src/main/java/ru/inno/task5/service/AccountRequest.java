@@ -20,7 +20,4 @@ public record AccountRequest(
         String counter,
         String salesCode
 ) {
-    public AccountRequest(@NotNull Integer instanceId) {
-        this(instanceId, null, null, null, null, null, null, null, null, null, null);
-    }
 }

@@ -14,7 +14,6 @@ public class ErrorHandle extends ResponseEntityExceptionHandler {
 
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatusCode status, WebRequest request) {
-        System.out.println("handleMethodArgumentNotValid");
         var fieldError = ex.getBindingResult().getFieldError();
         String errorMessage;
         try {
